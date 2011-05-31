@@ -1,0 +1,5 @@
+Tiny JavaScript "engine" for creation JS+CSS-powered presentations.
+
+Initial idea was implemented in http://olostan.name/cqrs/
+
+This project aims to unify js/css/html code to ease creation of new presentations
