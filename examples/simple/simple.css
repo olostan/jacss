@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Helvetica,Arial,sans-serif;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+html {
+    height: 100%;
+}
+#buttons {
+  position: absolute;
+  z-index: 1000;
+}
+#cont {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	border: 2px solid rgba(255,0,0,0.2)
+		
+}
+span[id^="t"] {
+	position: absolute;	
+	white-space:nowrap;
+    -webkit-transition: all 1s ease-in-out;
+ 	-moz-transition: all 1s ease-in-out;
+ 	font-family: Impact, fantasy;
+ 	opacity: 0;
+ 	visibility: hidden;
+}
+body {
+	
+	background-image: -webkit-gradient(
+    	linear,left bottom,left top,
+    	color-stop(0.45, rgb(36,157,227)),
+    	color-stop(0.77, rgb(39,98,130)),
+    	color-stop(0.23, rgb(36,38,38))
+	);
+	background: -moz-linear-gradient(center bottom, #242626 23%, #249DE3 45%, #276282 77%  ) fixed;
+	background-repeat:no-repeat;
+	
+	
+	
+}
+#tdemo {
+	color: #ffe;
+	font-size: 80px;
+	left: -220px;
+	top: -50px;
+	opacity: 0.2;
+	visibility: visible;
+
+}
+.s1 > #tdemo {
+	opacity: 1;
+		text-shadow: 0px 0px 25px #000;
+}
+
+.s2 > #tdemo {
+	left: -400px;
+	top: -250px;
+}
+
+#tcss3 {
+	font-size: 700px;
+	left: -800px;
+	top: -400px;
+}
+.s2 > #tcss3 {
+	visibility: visible;
+	opacity: 0.7;
+	font-size: 300px;
+	left: -200px;
+	top: -150px;
+	left: -100px;
+}
+
+.s3 > #tdemo {
+	-webkit-transform: rotate(-90deg); 
+	-moz-transform: rotate(-90deg);
+	font-size: 60px;	
+}
+.s3 > #tcss3 {
+	left: -180px;
+	top: -400px;
+}
+

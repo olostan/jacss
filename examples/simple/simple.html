@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:jacss="http://example.com/ns">
+
+<head>
+	<title>jacss example 1</title>
+	<script type="text/javascript" src="../../jacss.js"></script>
+	<link href="simple.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript">
+		jacss.config = { frames : 5 };
+	</script>	
+</head>
+<body>
+<div id='buttons' style='opacity: 0.5'>
+<button onclick='jacss.next();' >Next</button><button onclick='jacss.previous();' >Prev</button><span id='current'>?</span><input id='range' type='range' min="0" max="200" />
+</div>
+<span width="200px" height="200px" id='cont'>
+	<span id='tdemo'>This is a demo</span>
+	<span id='tcss3'>CSS3</span>
+</span>
+</body>
+</html>
