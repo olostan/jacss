@@ -1,0 +1,29 @@
+#texample {
+	color: blue;
+	font-size: 50px;
+	left: -80px;
+	top: -35px;	
+}
+.s1 > #texample {
+	opacity: 1;
+	visibility: visible;
+}
+.s2 > #texample {
+	left: -400px;
+	top: 200px;
+}
+.s3 > #texample {
+	left: -400px;
+	top: -200px;
+	color: red;
+}
+.s4 > #texample {
+	left: 400px;
+	top: -200px;
+	color: green;
+}
+.s5 > #texample {
+	left: 400px;
+	top: 200px;
+	color: cyan;
+}

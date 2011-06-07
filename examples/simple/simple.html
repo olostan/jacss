@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+	<title>jacss simple example</title>
+	<script type="text/javascript" src="../../jacss.js"></script>
+	<link href="../../jacss.common.css" rel="stylesheet" type="text/css">
+	<link href="simple.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript">
+		jacss.config = { frames : 5 };
+	</script>	
+</head>
+<body>
+<div id='buttons' style='opacity: 0.5'>
+<button onclick='jacss.next();' >Next</button><button onclick='jacss.previous();' >Prev</button><span id='current'>?</span><input id='range' type='range' min="0" max="200" />
+</div>
+<span width="200px" height="200px" id='cont'>
+	<span id='texample'>Example</span>
+</span>
+</body>
+</html>
