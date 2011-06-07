@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Helvetica,Arial,sans-serif;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+html {
+    height: 100%;
+}
+#buttons {
+  position: absolute;
+  z-index: 1000;
+}
+#cont {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	border: 2px solid rgba(255,0,0,0.2)
+		
+}
+span[id^="t"] {
+	position: absolute;	
+	white-space:nowrap;
+    -webkit-transition: all 1s ease-in-out;
+ 	-moz-transition: all 1s ease-in-out;
+ 	-o-transition: all 1s ease-in-out;
+ 	font-family: Impact, fantasy;
+ 	opacity: 0;
+ 	visibility: hidden;
+}

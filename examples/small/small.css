@@ -1,35 +1,4 @@
 body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  font-family: Helvetica,Arial,sans-serif;
-  height: 100%;
-  background-repeat: no-repeat;
-}
-html {
-    height: 100%;
-}
-#buttons {
-  position: absolute;
-  z-index: 1000;
-}
-#cont {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	border: 2px solid rgba(255,0,0,0.2)
-		
-}
-span[id^="t"] {
-	position: absolute;	
-	white-space:nowrap;
-    -webkit-transition: all 1s ease-in-out;
- 	-moz-transition: all 1s ease-in-out;
- 	font-family: Impact, fantasy;
- 	opacity: 0;
- 	visibility: hidden;
-}
-body {
 	
 	background-image: -webkit-gradient(
     	linear,left bottom,left top,
@@ -84,5 +53,28 @@ body {
 .s3 > #tcss3 {
 	left: -180px;
 	top: -400px;
+}
+#tdemotxt {
+	font-size: 350px;
+	color: white;
+	left: -950px;
+	top: -1250px;
+	padding-right: 250px;
+	padding-left: 550px;
+
+		
+}
+.s4 > #tdemotxt {
+	visibility: visible;
+	opacity: 0.8;
+	
+	top: -250px;	
+}
+.s4 > #tdemo,.s4 > #tcss3 {
+	opacity: 0.2;
+}
+.s5 >#tdemotxt {
+		text-shadow: 0px 0px 85px #000;
+		background: rgba(50,155,255,0.4);
 }
 
