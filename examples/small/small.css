@@ -1,5 +1,4 @@
 body {
-	
 	background-image: -webkit-gradient(
     	linear,left bottom,left top,
     	color-stop(0.45, rgb(36,157,227)),
@@ -8,10 +7,20 @@ body {
 	);
 	background: -moz-linear-gradient(center bottom, #242626 23%, #249DE3 45%, #276282 77%  ) fixed;
 	background-repeat:no-repeat;
-	
-	
-	
 }
+#buttons {
+	border: 1px solid #5AF;
+	padding-right: 10px;	
+	padding-bottom: 5px;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF), to(#5AF));
+	background-image: -moz-linear-gradient(top, #FFF, #5AF); 
+	-webkit-border-bottom-right-radius: 15px;
+	-moz-border-radius-bottomright: 15px;
+	border-bottom-right-radius: 15px;
+	-moz-box-shadow: 10px 10px 5px #888;
+	box-shadow: 0px 0px 25px #888;
+}
+
 #tdemo {
 	color: #ffe;
 	font-size: 80px;

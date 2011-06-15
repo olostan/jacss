@@ -1,3 +1,17 @@
+#buttons {
+	border: 1px solid #5AF;
+	padding-right: 10px;	
+	padding-bottom: 5px;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF), to(#5AF));
+	background-image: -moz-linear-gradient(top, #FFF, #5AF); 
+	-webkit-border-bottom-right-radius: 15px;
+	-moz-border-radius-bottomright: 15px;
+	border-bottom-right-radius: 15px;
+	-moz-box-shadow: 10px 10px 5px #888;
+	box-shadow: 0px 0px 25px #888;
+}
+
+
 #texample {
 	color: blue;
 	font-size: 50px;
