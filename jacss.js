@@ -1,11 +1,17 @@
 var jacss=function()
 {
-// do context switch if nessesary (for future to support several 'presentations':
+// do context switch if necessary (for future to support several 'presentations':
 if (this==window) { jacss.call(jacss); return; }
-try {
+
 	var config = { frames: 0, container:"#cont", range:"#range",showIn:"#current" };
 
-	for(var n in config) { if (this.config[n]) config[n] = this.config[n]; }
+	for(var n in config) {
+        //noinspection JSUnfilteredForInLoop
+        if (Object.prototype.hasOwnProperty(this.config,n)) {
+            //noinspection JSUnfilteredForInLoop
+            config[n] = this.config[n];
+        }
+    }
 	
 	var showInNodes = document.querySelectorAll(config.showIn);
 	var rangeNodes = document.querySelectorAll(config.range);
@@ -24,7 +30,7 @@ try {
 	};
 	this.previous = function() {
 	    this.set_stage(this.frame==0?config.frames:(this.frame-1));
-	}
+	};
 	
 	this.set_stage = function(stage){	
 		if (stage>this.frame) {
@@ -52,6 +58,7 @@ try {
 	var keydown = function(event) {
 		if (event.keyCode == '32' || event.keyCode == '39') { instance.next();event.preventDefault();event.stopPropagation();return false; }
 		if (event.keyCode == '37') { instance.previous();event.preventDefault();event.stopPropagation();return false; }
+        return true;
 	};
 	window.addEventListener("keydown", keydown, false );
 	window.onhashchange = function() {
@@ -61,8 +68,5 @@ try {
 		   this.set_stage(window.location.hash.substring(1));
 	}
 	
-} catch (e) {
-	alert(e+"(See console log for details)");
-	console.log(e.stack);		
-}};
+};
 window.addEventListener("load", jacss, false);

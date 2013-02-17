@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jacss example 1</title>
+    <!--suppress HtmlUnknownTarget -->
+    <script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="../../jacss.js"></script>
+	<script type="text/javascript" src="../../jacss_share.js"></script>
+	<link href="../../jacss.common.css" rel="stylesheet" type="text/css">
+	<link href="small.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript">
+		jacss.config = { frames : 5 };
+	</script>	
+</head>
+<body>
+<div id='buttons' style='opacity: 0.5'>
+<button onclick='jacss.previous();' >&larr;</button><button onclick='jacss.next();' >&rarr;</button>
+    <label id="current" for="range"></label><input id='range' type='range' min="0" max="200" />
+    <button onclick='jacss_share.share();' id="share" >Share</button>
+</div>
+<span id='cont'>
+	<span id='tdemo'>This is a demo</span>
+	<span id='tcss3'>CSS3</span>
+	<span id='tdemotxt'>DemO</span>
+</span>
+</body>
+</html>

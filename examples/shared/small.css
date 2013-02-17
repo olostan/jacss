@@ -1,0 +1,89 @@
+body {
+	background-image: -webkit-gradient(
+    	linear,left bottom,left top,
+    	color-stop(0.45, rgb(36,157,227)),
+    	color-stop(0.77, rgb(39,98,130)),
+    	color-stop(0.23, rgb(36,38,38))
+	);
+	background: -moz-linear-gradient(center bottom, #242626 23%, #249DE3 45%, #276282 77%  ) fixed;
+	background-repeat:no-repeat;
+}
+#buttons {
+	border: 1px solid #5AF;
+	padding-right: 10px;	
+	padding-bottom: 5px;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF), to(#5AF));
+	background-image: -moz-linear-gradient(top, #FFF, #5AF); 
+	-webkit-border-bottom-right-radius: 15px;
+	-moz-border-radius-bottomright: 15px;
+	border-bottom-right-radius: 15px;
+	-moz-box-shadow: 10px 10px 5px #888;
+	box-shadow: 0 0 25px #888;
+}
+
+#tdemo {
+	color: #ffe;
+	font-size: 80px;
+	left: -220px;
+	top: -50px;
+	opacity: 0.2;
+	visibility: visible;
+
+}
+.s1 > #tdemo {
+	opacity: 1;
+		text-shadow: 0 0 25px #000;
+}
+
+.s2 > #tdemo {
+	left: -400px;
+	top: -250px;
+}
+
+#tcss3 {
+	font-size: 700px;
+	left: -800px;
+	top: -400px;
+}
+.s2 > #tcss3 {
+	visibility: visible;
+	opacity: 0.7;
+	font-size: 300px;
+
+    top: -150px;
+	left: -100px;
+}
+
+.s3 > #tdemo {
+	-webkit-transform: rotate(-90deg); 
+	-moz-transform: rotate(-90deg);
+	font-size: 60px;	
+}
+.s3 > #tcss3 {
+	left: -180px;
+	top: -400px;
+}
+#tdemotxt {
+	font-size: 350px;
+	color: white;
+	left: -950px;
+	top: -1250px;
+	padding-right: 250px;
+	padding-left: 550px;
+
+		
+}
+.s4 > #tdemotxt {
+	visibility: visible;
+	opacity: 0.8;
+	
+	top: -250px;	
+}
+.s4 > #tdemo,.s4 > #tcss3 {
+	opacity: 0.2;
+}
+.s5 >#tdemotxt {
+		text-shadow: 0 0 85px #000;
+		background: rgba(50,155,255,0.4);
+}
+
