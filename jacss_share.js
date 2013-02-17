@@ -9,7 +9,7 @@ var jacss_share = function () {
     var detached = false;
     var havePresenter = false;
 
-    var config = { server: 'localhost:8088', name: window.location.origin + window.location.pathname, share: "#share" };
+    var config = { server: 'olostan.org.ua:8088', name: window.location.origin + window.location.pathname, share: "#share" };
     for (var n in config) {
         //noinspection JSUnfilteredForInLoop
         if (Object.prototype.hasOwnProperty.call(jacss.config,n)) { //noinspection JSUnfilteredForInLoop
@@ -107,7 +107,9 @@ var jacss_share = function () {
     var current;
     jacss.set_stage = function (stage) {
         if (current == stage) return;
+        //console.log('changing',stage,presenter,detached);
         if (!presenter && !detached) return;
+
         current = stage;
 
         if (presenter)

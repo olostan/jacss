@@ -7,7 +7,7 @@ if (this==window) { jacss.call(jacss); return; }
 
 	for(var n in config) {
         //noinspection JSUnfilteredForInLoop
-        if (Object.prototype.hasOwnProperty(this.config,n)) {
+        if (Object.prototype.hasOwnProperty.call(this.config,n)) {
             //noinspection JSUnfilteredForInLoop
             config[n] = this.config[n];
         }
