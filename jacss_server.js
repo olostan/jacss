@@ -36,60 +36,83 @@ function handler(req, res) {
         });
 }
 var presentations = {};
-var broadcast = function (name, event, data) {
-    presentations[name].joins.forEach(function (client) {
+var broadcast = function (presentation, event, data) {
+    presentation.joins.forEach(function (client) {
         client.emit(event, data);
     });
 };
 var numberOfKeys = function (obj) {
     var r = 0;
-    for (var x in obj) if (Object.prototype.hasOwnProperty.call(obj,x)) r++;
+    for (var x in obj) if (Object.prototype.hasOwnProperty.call(obj, x)) r++;
     return r;
 };
 
 io.sockets.on('connection', function (socket) {
 
-    socket.emit('status', {version: '0.0.1', presentations: numberOfKeys(presentations)});
-    socket.on('share', function (data, fn) {
-        var presentation = presentations[data.name];
-        if (presentation && presentation.presenter) return fn({error: "There is already presenter"});
-        if (!presentation) presentations[data.name] = { presenter: socket, joins: []};
-        else presentation.presenter = socket;
+    socket.emit('server.status', {version: '0.0.3', presentations: numberOfKeys(presentations)});
 
-        broadcast(data.name, 'presenter', true);
+    socket.on('register', function (data, fn) {
+        var name = data.name;
+        var presentation = presentations[data.name];
         socket.set('name', data.name, function () {
-            fn({ok: true});
+            fn({presenter: presentation && !!presentation.presenter});
+        });
+
+    });
+
+    var ensurePresentation = function (cb) {
+        socket.get('name', function (err, name) {
+            if (!err && name) {
+                var presentation = presentations[name];
+                if (!presentation) presentation = presentations[name] = { presenter: null, joins: [], stage: -1};
+                cb(presentation, name);
+            }
+        });
+    };
+
+    socket.on('share', function (data, fn) {
+        ensurePresentation(function (presentation) {
+            if (presentation.presenter) return fn({error: "There is already presenter"});
+            presentation.presenter = socket;
+            presentation.stage = data.stage;
+            broadcast(presentation, 'presenter', {presenter: true, stage: presentation.stage});
+            return fn({ok: true});
         });
         return true;
     });
-    socket.on('join', function (data, fn) {
-        var p = presentations[data.name];
-        if (!p) p = presentations[data.name] = { presenter: null, joins: []};
-        p.joins.push(socket);
-        socket.set('name', data.name, function () {
-            fn({ok: true, presenter: !!p.presenter});
+    socket.on('stop', function (data, fn) {
+        ensurePresentation(function (presentation) {
+            if (presentation.presenter == socket) {
+                presentation.presenter = null;
+                broadcast(presentation, 'presenter', {presenter: false});
+                fn({ok: true});
+            } else fn({error: "You're not presenter"});
         });
 
     });
+    socket.on('join', function (data, fn) {
+        ensurePresentation(function (presentation) {
+            presentation.joins.push(socket);
+            fn({ok: true, presenter: !!presentation.presenter, stage: presentation.stage});
+        });
+    });
     socket.on('stage', function (data) {
-        socket.get('name', function (err, name) {
-            if (err || !name) return;
-            broadcast(name, 'stage', {stage: data.stage});
-        })
+        ensurePresentation(function (presentation) {
+            presentation.stage = data.stage;
+            broadcast(presentation, 'stage', {stage: data.stage});
+        });
     });
     socket.on('disconnect', function () {
-        socket.get('name', function (err, name) {
-            if (err || !name) return;
-            var p = presentations[name];
-            if (p.presenter == socket) {
-                p.presenter = null;
-                broadcast(name, 'presenter', false);
+        ensurePresentation(function (presentation, name) {
+            if (presentation.presenter == socket) {
+                presentation.presenter = null;
+                broadcast(presentation, 'presenter', {presenter: false});
             }
             else {
-                var i = p.joins.indexOf(socket);
-                if (i >= 0) p.joins.splice(i, 1);
+                var i = presentation.joins.indexOf(socket);
+                if (i >= 0) presentation.joins.splice(i, 1);
             }
-            if (!p.presenter && p.joins.length == 0) {
+            if (!presentation.presenter && presentation.joins.length == 0) {
                 delete presentations[name];
                 console.log("CLEANUP: Removed " + name);
             }
