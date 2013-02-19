@@ -102,6 +102,11 @@ io.sockets.on('connection', function (socket) {
             broadcast(presentation, 'stage', {stage: data.stage});
         });
     });
+    socket.on('event', function (data) {
+        ensurePresentation(function (presentation) {
+            broadcast(presentation, 'event', data);
+        });
+    });
     socket.on('disconnect', function () {
         ensurePresentation(function (presentation, name) {
             if (presentation.presenter == socket) {

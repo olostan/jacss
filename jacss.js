@@ -56,6 +56,7 @@ if (this==window) { jacss.call(jacss); return; }
 		x.addEventListener("change", rangeChanger, false);
 	});
 	var keydown = function(event) {
+        if (event.target.tagName == 'INPUT' || event.target.tagName == 'TEXTAREA') return false;
 		if (event.keyCode == '32' || event.keyCode == '39') { instance.next();event.preventDefault();event.stopPropagation();return false; }
 		if (event.keyCode == '37') { instance.previous();event.preventDefault();event.stopPropagation();return false; }
         return true;
