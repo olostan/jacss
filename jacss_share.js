@@ -10,8 +10,8 @@ var jacss_share = function () {
     var havePresenter = false;
     var joined = false;
 
-    //var config = { server: 'olostan.org.ua:8088', name: window.location.host + window.location.pathname, share: "#share", simulate: true };
-    var config = { server: '127.0.0.1:8088', name: window.location.host + window.location.pathname, share: "#share", simulate: true };
+    var config = { server: 'olostan.org.ua:8088', name: window.location.host + window.location.pathname, share: "#share", simulate: true };
+    //var config = { server: '127.0.0.1:8088', name: window.location.host + window.location.pathname, share: "#share", simulate: true };
     for (var n in config) {
         //noinspection JSUnfilteredForInLoop
         if (Object.prototype.hasOwnProperty.call(jacss.config, n)) { //noinspection JSUnfilteredForInLoop
