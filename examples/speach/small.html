@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+	<title>jacss example 1</title>
+	<script type="text/javascript" src="../../jacss.js"></script>
+	<script type="text/javascript" src="../../jacss_speach.js"></script>
+	<link href="../../jacss.common.css" rel="stylesheet" type="text/css">
+	<link href="../small/small.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript">
+		jacss.config = { frames : 5 };
+	</script>
+    <style>
+#speach { display: hidden; width: 30px;cursor: pointer;  }
+#speach.visible { display: inline-block; opacity: 0.3; }
+#speach.active { opacity: 1; }
+    </style>
+</head>
+<body>
+<div id='buttons' style='opacity: 0.5'>
+<button onclick='jacss.previous();' >&larr;</button><button onclick='jacss.next();' >&rarr;</button><span id='current'>?</span><input id='range' type='range' min="0" max="200" />
+    <img src="mic.gif" id="speach">
+</div>
+<span width="200px" height="200px" id='cont'>
+	<span id='tdemo'>This is a demo</span>
+	<span id='tcss3'>CSS3</span>
+	<span id='tdemotxt'>DemO</span>
+</span>
+</body>
+</html>
