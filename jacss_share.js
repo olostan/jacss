@@ -5,6 +5,11 @@ var jacss_share = function () {
         return;
     }
 
+    if (!navigator.onLine) {
+        // we're offline, no sharing
+        return;
+    }
+
     var presenter = false;
     var detached = false;
     var havePresenter = false;
