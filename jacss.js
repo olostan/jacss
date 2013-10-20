@@ -3,7 +3,7 @@ var jacss=function()
 // do context switch if necessary (for future to support several 'presentations':
 if (this==window) { jacss.call(jacss); return; }
 
-	var config = { frames: 0, container:"#cont", range:"#range",showIn:"#current" };
+	var config = { frames: 0, container:"#cont", range:"#range",showIn:"#current",onBody:false };
 
 	for(var n in config) {
         //noinspection JSUnfilteredForInLoop
@@ -23,6 +23,8 @@ if (this==window) { jacss.call(jacss); return; }
 	};
 	
 	var container = document.querySelector(config.container);
+    if (config.onBody) container = document.body;
+    console.log(config);
 	if (!container) throw new Error("Container ("+config.container+") was not found");
 	
 	this.next = function() {
@@ -56,9 +58,10 @@ if (this==window) { jacss.call(jacss); return; }
 		x.addEventListener("change", rangeChanger, false);
 	});
 	var keydown = function(event) {
+        console.log(event);
         if (event.target.tagName == 'INPUT' || event.target.tagName == 'TEXTAREA') return false;
-		if (event.keyCode == '32' || event.keyCode == '39') { instance.next();event.preventDefault();event.stopPropagation();return false; }
-		if (event.keyCode == '37') { instance.previous();event.preventDefault();event.stopPropagation();return false; }
+		if (event.keyCode == '32' || event.keyCode == '39' || event.keyCode == '34') { instance.next();event.preventDefault();event.stopPropagation();return false; }
+		if (event.keyCode == '37' || event.keyCode == '33') { instance.previous();event.preventDefault();event.stopPropagation();return false; }
         return true;
 	};
 	window.addEventListener("keydown", keydown, false );
